@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Oscuridad Dulce</title>
+  <!-- Fuente elegante y legible -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('https://images3.imgbox.com/d5/3a/acwKb2AT_o.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: 'Playfair Display', serif;
+      color: #eee;
+      overflow-x: hidden;
+    }
+
+    .contenedor {
+      min-height: 100vh;
+      padding: 40px 20px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .boton-musica {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 25px;
+      background-color: #111;
+      color: #fff;
+      border: 1px solid #555;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+      font-family: 'Playfair Display', serif;
+      box-shadow: 0 0 10px #666;
+      transition: background-color 0.3s, transform 0.3s;
+      z-index: 10;
+    }
+
+    .boton-musica:hover {
+      background-color: #222;
+      transform: scale(1.05);
+    }
+
+    .heart {
+      position: relative;
+      width: 100px;
+      height: 90px;
+      background: red;
+      transform: rotate(-45deg);
+      animation: glow 1.5s infinite alternate, pulse 1.5s infinite;
+      box-shadow: 0 0 20px red;
+      margin-top: 60px;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 90px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -50px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 50px;
+      top: 0;
+    }
+
+    @keyframes glow {
+      0% { box-shadow: 0 0 10px red; }
+      100% { box-shadow: 0 0 30px red, 0 0 70px red, 0 0 100px red; }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1) rotate(-45deg); }
+      50% { transform: scale(1.1) rotate(-45deg); }
+      100% { transform: scale(1) rotate(-45deg); }
+    }
+
+    .mensaje {
+      font-size: 28px;
+      text-align: center;
+      max-width: 85%;
+      margin-top: 40px;
+      animation: flotar 6s ease-in-out infinite, aparecer 2s ease forwards;
+      opacity: 0;
+      text-shadow:
+        0 0 10px #fff,
+        0 0 20px #ff0044,
+        0 0 40px #ff0044,
+        2px 2px 4px #000;
+      letter-spacing: 1px;
+      line-height: 1.5;
+    }
+
+    @keyframes flotar {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes aparecer {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <audio id="audio" loop>
+    <source src="Musicaa.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
+  <button class="boton-musica" onclick="document.getElementById('audio').play(); this.style.display='none';">
+    🎶 Activar música
+  </button>
+
+  <div class="contenedor">
+    <div class="heart"></div>
+
+    <div class="mensaje">
+      No busco la luz del día, prefiero tu oscuridad.<br>
+      Porque en tu mirada habita mi más dulce eternidad.<br><br>
+
+      Bitzaira,<br>
+      No sé cómo decírtelo de la mejor forma, pero quiero que sepas algo muy sincero: me gustas. Me gustas mucho, y más allá de eso, te quiero. Quiero que sepas que pase lo que pase —llueva, truene, estemos bien o mal— siempre voy a estar para ti. No hay circunstancia que me haga cambiar lo que siento por ti.<br><br>
+
+      Te quiero de una forma tan grande que no te lo imaginas. Me encantaría seguir compartiendo momentos contigo, vivir cosas nuevas, reírnos juntos, disfrutar lo simple y lo increíble de la vida, pero contigo. Porque contigo, todo se vuelve especial. Solo quería que lo supieras.
+    </div>
+  </div>
+</body>
+</html>
